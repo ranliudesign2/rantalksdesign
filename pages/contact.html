@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Ran Talks Design</title>
+  <meta name="description" content="Get in touch with Ran Liu — for speaking, guest pitches, newsletter, and general enquiries.">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300;1,700&family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,600;1,200;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-channels {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-top: 48px;
+    }
+    .contact-channel {
+      background: var(--charcoal-2);
+      padding: 28px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s;
+      border-left: 2px solid transparent;
+    }
+    .contact-channel:hover {
+      background: var(--charcoal-3);
+      border-color: var(--fuchsia);
+    }
+    .contact-channel-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--fuchsia);
+      margin-bottom: 6px;
+    }
+    .contact-channel-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    .contact-channel-arrow {
+      font-size: 20px;
+      color: var(--fuchsia);
+      opacity: 0;
+      transform: translate(-4px, 4px);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .contact-channel:hover .contact-channel-arrow {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+    .contact-note {
+      font-family: 'Crimson Pro', serif;
+      font-size: 18px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: 32px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav>
+  <a href="../index.html" class="nav-logo">Ran Talks <span class="dot">Design</span></a>
+  <div class="nav-links">
+    <a href="episodes.html">Episodes</a>
+    <a href="articles.html">Articles</a>
+    <a href="speaking.html">Speaking</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <button class="nav-subscribe">Subscribe</button>
+  </div>
+</nav>
+
+<!-- ════════════════ PAGE HERO ════════════════ -->
+<div class="page-hero">
+  <div class="page-hero-eyebrow anim">
+    <div class="page-hero-eyebrow-line"></div>
+    <span>Get in Touch</span>
+  </div>
+  <h1 class="page-hero-title anim anim-d1">Say <em>Hello.</em></h1>
+  <p class="page-hero-desc anim anim-d2">
+    For speaking enquiries, guest pitches, collaborations, or just to say hi — I read everything.
+  </p>
+</div>
+
+<!-- ══════════════ CONTACT SECTION ════════════ -->
+<section style="background: var(--charcoal);">
+  <div class="contact-grid">
+    <div>
+      <div class="section-eyebrow anim">
+        <div class="section-eyebrow-line"></div>
+        <span>Reach Out</span>
+      </div>
+      <h2 class="section-title anim anim-d1">Find me<br><em>here.</em></h2>
+      <div class="contact-channels anim anim-d2">
+        <a href="#" class="contact-channel">
+          <div>
+            <div class="contact-channel-label">Social</div>
+            <div class="contact-channel-name">LinkedIn</div>
+          </div>
+          <div class="contact-channel-arrow">↗</div>
+        </a>
+        <a href="#" class="contact-channel">
+          <div>
+            <div class="contact-channel-label">Social</div>
+            <div class="contact-channel-name">Twitter / X</div>
+          </div>
+          <div class="contact-channel-arrow">↗</div>
+        </a>
+        <a href="#" class="contact-channel">
+          <div>
+            <div class="contact-channel-label">Social</div>
+            <div class="contact-channel-name">Instagram</div>
+          </div>
+          <div class="contact-channel-arrow">↗</div>
+        </a>
+      </div>
+      <p class="contact-note anim anim-d3">
+        I typically respond within 48 hours. For speaking, please include the event name and date.
+      </p>
+    </div>
+
+    <div class="anim anim-d2">
+      <div class="newsletter-form" style="margin-top: 0;">
+        <div style="margin-bottom: 28px;">
+          <div class="section-eyebrow" style="margin-bottom: 0;">
+            <div class="section-eyebrow-line"></div>
+            <span>Send a Message</span>
+          </div>
+        </div>
+        <input class="form-input" type="text" placeholder="Your name">
+        <input class="form-input" type="email" placeholder="your@email.com">
+        <select class="form-input" style="cursor: none;">
+          <option value="" disabled selected style="color: rgba(255,255,255,0.25);">What's this about?</option>
+          <option value="speaking">Speaking enquiry</option>
+          <option value="guest">Guest pitch</option>
+          <option value="collab">Collaboration</option>
+          <option value="other">Just saying hi</option>
+        </select>
+        <textarea class="form-input" rows="5" placeholder="Your message..." style="resize: vertical;"></textarea>
+        <button class="form-submit">Send Message →</button>
+        <div class="form-note">I read every message personally.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ═════════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">Ran Talks <span>Design</span></div>
+      <div class="footer-tagline">Designing isn't just about craft. It's about outcomes.</div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Listen</h4>
+        <a href="episodes.html">All Episodes</a>
+        <a href="#">Spotify</a>
+        <a href="#">Apple Podcasts</a>
+        <a href="#">YouTube</a>
+      </div>
+      <div class="footer-col">
+        <h4>Read</h4>
+        <a href="articles.html">Articles</a>
+        <a href="#">Newsletter</a>
+        <a href="#">PMF Framework</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="speaking.html">Speaking</a>
+        <a href="about.html">About Ran</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Ran Talks Design. All rights reserved.</div>
+    <div class="footer-socials">
+      <a href="#">LinkedIn</a>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
