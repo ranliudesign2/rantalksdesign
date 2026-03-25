@@ -1,358 +1,481 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ran Talks Design</title>
-  <meta name="description" content="The podcast and newsletter for designers ready to sit at the table — design strategy, career growth, and business outcomes.">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,300;1,700&family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,600;1,200;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ran Talks Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-<!-- ═══════════════════ NAV ═══════════════════ -->
-<nav>
-  <a href="index.html" class="nav-logo">Ran Talks <span class="dot">Design</span></a>
-  <div class="nav-links">
-    <a href="pages/episodes.html">Episodes</a>
-    <a href="pages/articles.html">Articles</a>
-    <a href="pages/speaking.html">Speaking</a>
-    <a href="pages/about.html">About</a>
-    <a href="pages/contact.html">Contact</a>
-    <button class="nav-subscribe">Subscribe</button>
-  </div>
-</nav>
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+      }
 
-<!-- ═══════════════════ HERO ══════════════════ -->
-<div class="hero">
-  <div class="hero-bg-glow"></div>
-  <div class="hero-bg-glow-2"></div>
+      body {
+        background: #0a0a0a;
+        color: #fff;
+        font-family: "DM Sans", sans-serif;
+        font-weight: 300;
+      }
 
-  <div class="hero-inner">
-    <div class="hero-left">
-      <div class="hero-eyebrow anim anim-d1">
-        <div class="hero-eyebrow-line"></div>
-        <span>Design · Strategy · Growth</span>
+      ::-webkit-scrollbar {
+        width: 3px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0a0a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #e8197a;
+      }
+
+      /* Firefox */
+      html {
+        scrollbar-width: thin;
+        scrollbar-color: #e8197a #0a0a0a;
+      }
+      /* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+      .hero {
+        height: 100vh;
+        display: flex;
+        padding-top: 68px;
+        position: relative;
+        overflow: hidden;
+      }
+      /* Subtle texture */
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          circle at 70% 50%,
+          rgba(232, 25, 122, 0.04) 0%,
+          transparent 60%
+        );
+        pointer-events: none;
+      }
+      .hero-left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 80px 64px 100px;
+        position: relative;
+        z-index: 2;
+      }
+      .hero-headline {
+        margin-bottom: 32px;
+      }
+      .hero-headline-line1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(72px, 8.5vw, 110px);
+        font-weight: 900;
+        line-height: 0.9;
+        color: #f0ede6;
+        display: block;
+        letter-spacing: -0.01em;
+      }
+      .hero-headline-line2 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(76px, 9vw, 116px);
+        font-weight: 700;
+        font-style: italic;
+        line-height: 0.9;
+        color: #e8197a;
+        display: block;
+        letter-spacing: -0.01em;
+      }
+      .hero-sub {
+        font-size: 16px;
+        font-weight: 300;
+        color: rgba(240, 237, 230, 0.45);
+        max-width: min(560px, 100%);
+        line-height: 1.9;
+        letter-spacing: 0.01em;
+        margin-bottom: 48px;
+      }
+      .hero-sub em {
+        font-style: italic;
+        color: rgba(240, 237, 230, 0.65);
+      }
+      .hero-ctas {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .btn-youtube {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #f0ede6;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .btn-youtube:hover {
+        color: rgba(240, 237, 230, 0.7);
+      }
+      .btn-youtube .arrow {
+        color: #e8197a;
+      }
+
+      /* Hero right: photo */
+      .hero-right {
+        width: 44%;
+        position: relative;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+      .hero-photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+        /* the dark bg on the photo blends naturally */
+        mix-blend-mode: lighten;
+        opacity: 0.85;
+      }
+      /* Left-side gradient fade */
+      .hero-photo-fade {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, #0a0a0a 0%, transparent 35%);
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      /* ══════════════════════════════════════
+         NAV
+      ══════════════════════════════════════ */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        height: 68px;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        padding: 0 40px;
+        background: rgba(10, 10, 10, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      }
+      .nav-logo {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        font-size: 17px;
+        color: #f0ede6;
+        text-decoration: none;
+        letter-spacing: -0.01em;
+        white-space: nowrap;
+      }
+      .nav-logo-accent {
+        color: #f0ede6;
+      }
+      .nav-links {
+        display: none;
+        align-items: center;
+        gap: 36px;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 12px;
+        font-weight: 400;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(240, 237, 230, 0.5);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: #f0ede6;
+      }
+      .nav-right {
+        display: flex;
+        justify-content: flex-end;
+        grid-column: 3;
+      }
+      .btn-subscribe {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #fff;
+        background: #e8197a;
+        text-decoration: none;
+        padding: 9px 20px;
+        border-radius: 2px;
+        transition: opacity 0.2s;
+      }
+      .btn-subscribe:hover {
+        opacity: 0.85;
+      }
+
+      /* ══════════════════════════════════════
+         RESPONSIVE
+      ══════════════════════════════════════ */
+
+      /* Tablet */
+      @media (max-width: 1024px) {
+        .hero-left {
+          padding: 60px 48px 80px;
+        }
+        .hero-right {
+          width: 40%;
+        }
+      }
+
+      /* Hamburger (hidden on desktop) */
+      .nav-hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+      }
+      .nav-hamburger span {
+        display: block;
+        width: 22px;
+        height: 1.5px;
+        background: #f0ede6;
+        transition: transform 0.22s ease, opacity 0.22s ease;
+      }
+      .nav-hamburger.is-open span:nth-child(1) {
+        transform: translateY(6.5px) rotate(45deg);
+      }
+      .nav-hamburger.is-open span:nth-child(2) {
+        opacity: 0;
+      }
+      .nav-hamburger.is-open span:nth-child(3) {
+        transform: translateY(-6.5px) rotate(-45deg);
+      }
+
+      /* Mobile menu panel (hidden on desktop) */
+      .nav-mobile-menu {
+        display: none;
+        position: fixed;
+        top: 68px;
+        left: 0;
+        right: 0;
+        z-index: 99;
+        flex-direction: column;
+        gap: 40px;
+        padding: 40px 28px 48px;
+        background: rgba(10, 10, 10, 0.97);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-6px);
+        transition: opacity 0.22s ease, transform 0.22s ease, visibility 0s 0.22s;
+      }
+      .nav-mobile-menu.is-open {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0s;
+      }
+      .nav-mobile-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+      .nav-mobile-links a {
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(240, 237, 230, 0.6);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .nav-mobile-links a:hover {
+        color: #f0ede6;
+      }
+      .nav-mobile-menu .btn-subscribe {
+        background: none;
+        padding: 0;
+        border-radius: 0;
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: 0.12em;
+        color: rgba(240, 237, 230, 0.6);
+      }
+      .nav-mobile-menu .btn-subscribe:hover {
+        opacity: 1;
+        color: #f0ede6;
+      }
+
+      /* Mobile nav */
+      @media (max-width: 767px) {
+        .nav {
+          padding: 0 20px;
+          grid-template-columns: 1fr auto;
+        }
+        .nav-links,
+        .nav-right {
+          display: none;
+        }
+        .nav-hamburger {
+          display: flex;
+        }
+        .nav-logo-word {
+          display: none;
+        }
+        .nav-mobile-menu {
+          display: flex;
+        }
+      }
+
+      /* Mobile */
+      @media (max-width: 767px) {
+        .hero {
+          flex-direction: column;
+          padding-top: 0;
+          align-items: center;
+          justify-content: center;
+        }
+        .hero-left {
+          flex: unset;
+          width: 100%;
+          justify-content: center;
+          padding: 48px 28px 40px;
+          z-index: 3;
+        }
+        .hero-headline-line1 {
+          font-size: clamp(52px, 16vw, 72px);
+        }
+        .hero-headline-line2 {
+          font-size: clamp(56px, 17vw, 76px);
+        }
+        .hero-sub {
+          max-width: 100%;
+          margin-bottom: 36px;
+        }
+        .hero-right {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ════════════ NAV ════════════ -->
+    <nav class="nav">
+      <a href="/" class="nav-logo">
+        <span class="nav-logo-accent">R</span><span class="nav-logo-word">an</span><span class="nav-logo-accent">T</span><span class="nav-logo-word">alks</span><span class="nav-logo-accent">D</span><span class="nav-logo-word">esign</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="pages/articles.html">Writing</a></li>
+        <li><a href="pages/episodes.html">Podcast</a></li>
+        <li><a href="pages/speaking.html">Speaking</a></li>
+        <li><a href="pages/about.html">About</a></li>
+      </ul>
+      <div class="nav-right">
+        <a
+          href="https://www.youtube.com/@rantalksdesign?sub_confirmation=1"
+          target="_blank"
+          rel="noopener"
+          class="btn-subscribe"
+          >Subscribe</a
+        >
       </div>
-      <h1 class="hero-title anim anim-d2">
-        Ran<br>
-        <span class="line-pink">Talks</span>
-        <span class="line-italic">Design.</span>
-      </h1>
-      <p class="hero-desc anim anim-d3">
-        The resource for designers who are tired of staying in the corner — and ready to sit at the table.
-      </p>
-      <div class="hero-ctas anim anim-d4">
-        <a href="pages/episodes.html" class="cta-primary">Listen Now</a>
-        <a href="pages/articles.html" class="cta-secondary">Read the latest <span class="cta-arrow">→</span></a>
-      </div>
+      <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+    <div class="nav-mobile-menu" aria-hidden="true">
+      <ul class="nav-mobile-links">
+        <li><a href="pages/articles.html">Writing</a></li>
+        <li><a href="pages/episodes.html">Podcast</a></li>
+        <li><a href="pages/speaking.html">Speaking</a></li>
+        <li><a href="pages/about.html">About</a></li>
+      </ul>
+      <a
+        href="https://www.youtube.com/@rantalksdesign?sub_confirmation=1"
+        target="_blank"
+        rel="noopener"
+        class="btn-subscribe"
+        >Subscribe</a
+      >
     </div>
 
-    <div class="hero-right anim anim-d3">
-      <div class="hero-ep-card">
-        <div class="new-badge"><div class="new-badge-dot"></div> New Episode</div>
-        <div class="hero-ep-num">Episode 047</div>
-        <div class="hero-ep-title">How recruiters actually hire designers</div>
-        <div class="hero-ep-desc">The unspoken rules, portfolio red flags, and what gets you to an offer.</div>
-        <div class="hero-ep-guest">
-          <div class="guest-avatar">HX</div>
-          <div class="guest-info">
-            <div class="guest-name">Hang Xu</div>
-            <div class="guest-title-text">Head of Design Recruiting · Figma</div>
-          </div>
+    <!-- ════════════ HERO ════════════ -->
+    <section class="hero">
+      <!-- Left: headline copy -->
+      <div class="hero-left">
+        <div class="hero-headline">
+          <span class="hero-headline-line1">Design</span>
+          <span class="hero-headline-line2">builds.</span>
         </div>
-        <div class="hero-ep-play"><div class="play-icon"></div></div>
-      </div>
-    </div>
-  </div>
 
-  <div class="hero-stats">
-    <div class="stat-item">
-      <div class="stat-num">47<span>+</span></div>
-      <div class="stat-label">Episodes</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">80<span>K</span></div>
-      <div class="stat-label">Monthly listeners</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">5<span>★</span></div>
-      <div class="stat-label">Average rating</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">12<span>+</span></div>
-      <div class="stat-label">Years in design</div>
-    </div>
-  </div>
-</div>
+        <div class="hero-rule"></div>
 
-<!-- ════════════ MARQUEE ══════════════════════ -->
-<div class="marquee-section">
-  <div class="marquee-track">
-    <span class="marquee-item">Design Strategy</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">Career Growth</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">Business Outcomes</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">Leadership</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">Product Thinking</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">Craft & Impact</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">Ran Talks Design</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">Design Strategy</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">Career Growth</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">Business Outcomes</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">Leadership</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">Product Thinking</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">Craft & Impact</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">Ran Talks Design</span><span class="marquee-dot">·</span>
-  </div>
-</div>
+        <p class="hero-sub">
+          Videos, essays, and frameworks for builders who take design seriously.
+        </p>
 
-<!-- ═══════════════ EPISODES ═════════════════ -->
-<section id="episodes">
-  <div class="section-header anim">
-    <div>
-      <div class="section-eyebrow">
-        <div class="section-eyebrow-line"></div>
-        <span>Most Popular</span>
-      </div>
-      <h2 class="section-title">Top <em>Episodes</em></h2>
-    </div>
-    <a href="pages/episodes.html" class="show-all">Show All →</a>
-  </div>
-
-  <div class="episodes-grid">
-    <!-- Featured -->
-    <a href="#" class="ep-card ep-card-featured anim">
-      <div class="featured-label">Fan Favourite</div>
-      <div class="ep-thumb" style="background:linear-gradient(135deg,#E8147E,#6B0736)">
-        <div class="ep-thumb-inner">
-          <div class="ep-thumb-initials">HX</div>
-          <div class="ep-thumb-ep">Ep. 47</div>
+        <div class="hero-ctas">
+          <a href="https://www.youtube.com/@rantalksdesign" target="_blank" rel="noopener" class="btn-youtube">Watch on YouTube <span class="arrow">↗</span></a>
         </div>
       </div>
-      <div class="ep-meta">
-        <div class="ep-tag-row">
-          <span class="ep-tag">Recruiting</span>
-          <span class="ep-num-tag">· Ep. 047</span>
-        </div>
-        <div class="ep-title-text">How Recruiters Actually Hire Designers</div>
-        <div class="ep-guest-line">with Hang Xu, Head of Design Recruiting at Figma</div>
-        <div class="ep-duration">58 min · 42K plays</div>
-      </div>
-    </a>
 
-    <a href="#" class="ep-card anim anim-d1">
-      <div class="ep-thumb" style="background:linear-gradient(135deg,#8B147E,#3A0B36)">
-        <div class="ep-thumb-inner">
-          <div class="ep-thumb-initials">SR</div>
-          <div class="ep-thumb-ep">Ep. 44</div>
-        </div>
-      </div>
-      <div class="ep-meta">
-        <div class="ep-tag-row">
-          <span class="ep-tag">Leadership</span>
-          <span class="ep-num-tag">· Ep. 044</span>
-        </div>
-        <div class="ep-title-text">Getting a seat at the product table</div>
-        <div class="ep-guest-line">with Sarah Ryu, VP Design at Linear</div>
-        <div class="ep-duration">51 min · 38K plays</div>
-      </div>
-      <div class="ep-card-arrow">↗</div>
-    </a>
+      <!-- Right: photo -->
+      <div class="hero-right">
+        <img
+          src="img/ran-headshot-full.png"
+          alt="Ran Liu"
+          class="hero-photo"
+          onerror="
+            this.style.display = 'none';
+            this.nextElementSibling.style.display = 'flex';
+          "
+        />
 
-    <a href="#" class="ep-card anim anim-d2">
-      <div class="ep-thumb" style="background:linear-gradient(135deg,#C84E14,#6B2B0B)">
-        <div class="ep-thumb-inner">
-          <div class="ep-thumb-initials">MK</div>
-          <div class="ep-thumb-ep">Ep. 41</div>
-        </div>
+        <div class="hero-photo-fade"></div>
       </div>
-      <div class="ep-meta">
-        <div class="ep-tag-row">
-          <span class="ep-tag">Growth</span>
-          <span class="ep-num-tag">· Ep. 041</span>
-        </div>
-        <div class="ep-title-text">Designing for metrics that actually matter</div>
-        <div class="ep-guest-line">with Min Kim, Design Lead at Stripe</div>
-        <div class="ep-duration">44 min · 31K plays</div>
-      </div>
-      <div class="ep-card-arrow">↗</div>
-    </a>
-
-    <a href="#" class="ep-card anim anim-d3">
-      <div class="ep-thumb" style="background:linear-gradient(135deg,#14C8A0,#0B6B54)">
-        <div class="ep-thumb-inner">
-          <div class="ep-thumb-initials">JL</div>
-          <div class="ep-thumb-ep">Ep. 39</div>
-        </div>
-      </div>
-      <div class="ep-meta">
-        <div class="ep-tag-row">
-          <span class="ep-tag">Career</span>
-          <span class="ep-num-tag">· Ep. 039</span>
-        </div>
-        <div class="ep-title-text">Negotiating your next design role</div>
-        <div class="ep-guest-line">with Jamie Lee, Staff Designer at Shopify</div>
-        <div class="ep-duration">62 min · 29K plays</div>
-      </div>
-      <div class="ep-card-arrow">↗</div>
-    </a>
-
-    <a href="#" class="ep-card anim anim-d4">
-      <div class="ep-thumb" style="background:linear-gradient(135deg,#5014C8,#1E0A5A)">
-        <div class="ep-thumb-inner">
-          <div class="ep-thumb-initials">AB</div>
-          <div class="ep-thumb-ep">Ep. 36</div>
-        </div>
-      </div>
-      <div class="ep-meta">
-        <div class="ep-tag-row">
-          <span class="ep-tag">Strategy</span>
-          <span class="ep-num-tag">· Ep. 036</span>
-        </div>
-        <div class="ep-title-text">When design owns the roadmap</div>
-        <div class="ep-guest-line">with Alex Brunner, CPO at Notion</div>
-        <div class="ep-duration">48 min · 27K plays</div>
-      </div>
-      <div class="ep-card-arrow">↗</div>
-    </a>
-  </div>
-</section>
-
-<!-- ═══════════════ ABOUT ════════════════════ -->
-<section id="about">
-  <div class="about-left anim">
-    <div class="about-quote-mark">"</div>
-    <div class="about-quote">Designing isn't just about craft. It's about outcomes. Strategy. Business. Growth.</div>
-  </div>
-  <div class="about-right anim anim-d2">
-    <div class="about-label">Your Host</div>
-    <div class="about-name">Ran<br>Liu</div>
-    <div class="about-bio">Staff designer, builder, and recovering burnout survivor. Formerly at Shopify, Adobe, Amplitude, and Chartboost. Now at AirOps — and still obsessed with how design can move the business needle.</div>
-    <div class="about-companies">
-      <span class="company-tag">Shopify</span>
-      <span class="company-tag">Adobe</span>
-      <span class="company-tag">Amplitude</span>
-      <span class="company-tag">AirOps</span>
-      <span class="company-tag">Chartboost</span>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ ARTICLES ═════════════════ -->
-<section id="articles">
-  <div class="section-header anim">
-    <div>
-      <div class="section-eyebrow">
-        <div class="section-eyebrow-line"></div>
-        <span>From the Blog</span>
-      </div>
-      <h2 class="section-title">Design <em>Writing</em></h2>
-    </div>
-    <a href="pages/articles.html" class="show-all">All Articles →</a>
-  </div>
-
-  <div class="articles-grid">
-    <a href="#" class="article-card anim anim-d1">
-      <div class="article-topic">PMF · Strategy</div>
-      <div class="article-title">How to know when your product has found its market</div>
-      <div class="article-excerpt">The framework I built after seeing three companies get this wrong in a row.</div>
-      <div class="article-meta">
-        <span class="article-date">Feb 2026</span>
-        <span class="article-read-more">Read →</span>
-      </div>
-    </a>
-    <a href="#" class="article-card article-card-accent anim anim-d2">
-      <div class="article-topic">AI · Research</div>
-      <div class="article-title">Using AI chat logs as a UX research shortcut</div>
-      <div class="article-excerpt">Why your product's support conversations are a goldmine — and nobody is mining them.</div>
-      <div class="article-meta">
-        <span class="article-date">Jan 2026</span>
-        <span class="article-read-more">Read →</span>
-      </div>
-    </a>
-    <a href="#" class="article-card anim anim-d3">
-      <div class="article-topic">Career · Negotiation</div>
-      <div class="article-title">The staff designer question nobody asks in interviews</div>
-      <div class="article-excerpt">There's a single question that reveals whether a company actually values design. Here's what it is.</div>
-      <div class="article-meta">
-        <span class="article-date">Dec 2025</span>
-        <span class="article-read-more">Read →</span>
-      </div>
-    </a>
-  </div>
-</section>
-
-<!-- ════════════ MARQUEE 2 ════════════════════ -->
-<div class="marquee-section" style="border-top:none">
-  <div class="marquee-track" style="animation-direction:reverse">
-    <span class="marquee-item">Ran Talks Design</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">Listen on Spotify</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">Apple Podcasts</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">Subscribe Free</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">New Episodes Weekly</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">Ran Talks Design</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">Listen on Spotify</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">Apple Podcasts</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">Subscribe Free</span><span class="marquee-dot">·</span>
-    <span class="marquee-item">New Episodes Weekly</span><span class="marquee-dot">·</span>
-  </div>
-</div>
-
-<!-- ══════════════ NEWSLETTER ════════════════ -->
-<section id="newsletter">
-  <div class="newsletter-left anim">
-    <h2 class="newsletter-title">Stay in<br>the <span class="pink">loop.</span></h2>
-    <p class="newsletter-sub">New episodes, essays, and frameworks for designers who want to grow beyond the craft.</p>
-  </div>
-  <div class="newsletter-right anim anim-d2">
-    <div class="newsletter-form">
-      <input class="form-input" type="text" placeholder="Your name">
-      <input class="form-input" type="email" placeholder="your@email.com">
-      <button class="form-submit">Subscribe →</button>
-      <div class="form-note">No spam. Unsubscribe anytime. ~2 emails/month.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════ FOOTER ═════════════════════ -->
-<footer>
-  <div class="footer-top">
-    <div>
-      <div class="footer-logo">Ran Talks <span>Design</span></div>
-      <div class="footer-tagline">Designing isn't just about craft. It's about outcomes.</div>
-    </div>
-    <div class="footer-links">
-      <div class="footer-col">
-        <h4>Listen</h4>
-        <a href="pages/episodes.html">All Episodes</a>
-        <a href="#">Spotify</a>
-        <a href="#">Apple Podcasts</a>
-        <a href="#">YouTube</a>
-      </div>
-      <div class="footer-col">
-        <h4>Read</h4>
-        <a href="pages/articles.html">Articles</a>
-        <a href="#newsletter">Newsletter</a>
-        <a href="#">PMF Framework</a>
-      </div>
-      <div class="footer-col">
-        <h4>Connect</h4>
-        <a href="pages/speaking.html">Speaking</a>
-        <a href="pages/about.html">About Ran</a>
-        <a href="pages/contact.html">Contact</a>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Ran Talks Design. All rights reserved.</div>
-    <div class="footer-socials">
-      <a href="#">LinkedIn</a>
-      <a href="#">Twitter</a>
-      <a href="#">Instagram</a>
-    </div>
-  </div>
-</footer>
-
-<script src="js/main.js"></script>
-</body>
+    </section>
+    <script>
+      const hamburger = document.querySelector(".nav-hamburger");
+      const mobileMenu = document.querySelector(".nav-mobile-menu");
+      hamburger.addEventListener("click", () => {
+        const isOpen = hamburger.classList.toggle("is-open");
+        mobileMenu.classList.toggle("is-open", isOpen);
+        hamburger.setAttribute("aria-expanded", isOpen);
+        mobileMenu.setAttribute("aria-hidden", !isOpen);
+      });
+    </script>
+  </body>
 </html>
